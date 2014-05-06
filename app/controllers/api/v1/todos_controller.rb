@@ -34,6 +34,11 @@ module Api
         respond_with Todo.destroy(params[:id])
       end
 
+      private
+      def todo_params
+        params.require(:todo).permit(:id, :title, :completed)
+      end
+
 
     end
   end
